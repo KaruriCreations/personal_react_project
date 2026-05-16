@@ -2,8 +2,8 @@
   "store_info": [
     {
       "id": "1",
-      "name": "Volt & Wire Electronics",
-      "description": "Your go-to spot for premium tech and next-gen gadgets",
+      "name": "Vincent Maina Electronics",
+      "description": "Vincent Maina Electronics - Your one-stop shop for all your electronic needs. From smartphones to laptops, we have it all!",
       "phone_number": "555-0199"
     }
   ],
@@ -18,10 +18,10 @@
   "electronics": [
     {
       "id": "1",
-      "name": "QuantumX Wireless Headphones",
+      "name": "QuantumXZY Wireless Headphones",
       "description": "Active noise-canceling with deep bass and 40-hour battery life",
       "origin": "Japan",
-      "price": 199.99
+      "price": "199.99"
     },
     {
       "id": "2",
@@ -101,9 +101,9 @@
       "price": 420
     },
     {
-      "name": "",
-      "description": "",
-      "price": "",
+      "name": "Lincon",
+      "description": "i love home",
+      "price": "1000",
       "id": "Sp2vW3uXQek"
     },
     {
