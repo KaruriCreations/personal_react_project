@@ -8,10 +8,10 @@ type ProductCardProps = {
 
 export default function ProductCard({ id, name, description, price, onEdit }: ProductCardProps){
     return (
-        <div style={{border: "1px solid #ccc", padding: "12px", margin: "8px", borderRadius: "8px"}}>
+        <div className="product-card">
             <h3>{name}</h3>
             <p>{description}</p>
-            <p><strong>KSH {price}</strong></p>
+            <p className="price">KSH {price}</p>
             {onEdit && (
                 <button onClick={() => onEdit(id)} style={{marginTop: "8px"}}>
                     ✏️ Edit

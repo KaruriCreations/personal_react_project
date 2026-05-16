@@ -16,9 +16,11 @@ export default function SearchBar({ fetchedProducts, setFilteredProducts }: Sear
     }
         
     return (
-        <div>
-            <label htmlFor="search">Search</label>
-            <input type="text" id="search" name="search" placeholder="Search products..." onChange={(e) => setSearchTerm(e.target.value)} />
+        <div className="search-container">
+            <div>
+                <label htmlFor="search">Search</label>
+                <input type="text" id="search" name="search" placeholder="Search products..." onChange={(e) => setSearchTerm(e.target.value)} />
+            </div>
             <button type="submit" onClick={handleSearch}>Search</button>
         </div>  
     )

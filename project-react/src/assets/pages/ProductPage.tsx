@@ -22,7 +22,7 @@ const {data, loading, error} = useContext(productContext);
         <>
         <NavBar />
         <SearchBar fetchedProducts={data as any[]} setFilteredProducts={setFilteredProducts} />
-        <div>
+        <div className="product-grid">
             {filteredProducts.map((product) => (
                 <ProductCard key={product.id} id={product.id} name={product.name} description={product.description} price={product.price} />  
             ))}

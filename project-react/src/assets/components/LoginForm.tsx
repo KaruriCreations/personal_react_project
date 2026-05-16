@@ -55,6 +55,8 @@ export default function LoginForm(){
             <input type="password" id= {PasswordId} name="password" onChange={(e) => setPassword(e.target.value)} />
             <br />
             <button type="submit">Login</button>
+            <p>use email: vincent@dev & password: 12345678</p>
+            <p>For LOGIN</p>
         </form>
     );
 }
