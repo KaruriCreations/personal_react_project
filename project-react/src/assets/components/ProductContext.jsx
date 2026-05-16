@@ -1,9 +1,9 @@
-import { createContext, ReactNode } from "react";
+import { createContext } from "react";
 import useFetch from "../../hooks/useFetch";
 
-const productContext = createContext<any>({});
+const productContext = createContext({});
 
-export const ProductProvider = ({children}: {children: ReactNode}) => {
+export const ProductProvider = ({children}) => {
     const productData = useFetch("http://localhost:5000/electronics");
 
     return (

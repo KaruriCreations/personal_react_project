@@ -8,7 +8,7 @@ export default function ProductForm(){
     const [errorMsg, setErrorMsg] = useState("");
     const navigate = useNavigate();
 
-      const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+      const handleSubmit = async (event) => {
         event.preventDefault();
         setErrorMsg("");
         try{

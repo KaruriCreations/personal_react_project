@@ -5,24 +5,16 @@ import ProductCard from "../components/ProductCard";
 import productContext from "../components/ProductContext";
 import { useContext, useState } from "react";
 
-type Product = {
-    id: string | number;
-    name: string;
-    description: string;
-    price: number | string;
-    origin?: string;
-}
-
 export default function AdminPage(){
     const { data, loading, error } = useContext(productContext);
-    const [editingProduct, setEditingProduct] = useState<Product | null>(null);
+    const [editingProduct, setEditingProduct] = useState(null);
     const [editName, setEditName] = useState("");
     const [editDescription, setEditDescription] = useState("");
     const [editPrice, setEditPrice] = useState("");
     const [saveMsg, setSaveMsg] = useState("");
 
-    function handleEdit(id: string | number) {
-        const product = (data as Product[]).find((p) => p.id === id);
+    function handleEdit(id) {
+        const product = data.find((p) => p.id === id);
         if (product) {
             setEditingProduct(product);
             setEditName(product.name);
@@ -87,7 +79,7 @@ export default function AdminPage(){
             )}
 
             <div style={{display:"flex", flexWrap:"wrap"}}>
-                {data && (data as Product[]).map((product) => (
+                {data && data.map((product) => (
                     <ProductCard
                         key={product.id}
                         id={product.id}

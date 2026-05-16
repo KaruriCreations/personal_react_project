@@ -6,22 +6,22 @@ import ProductCard from "../components/ProductCard";
 import SearchBar from "../components/SearchBar";
 
 export default function ProductPage(){
-const {data, loading, error} = useContext(productContext);
-    const [filteredProducts, setFilteredProducts] = useState<any[]>([]);
+    const {data, loading, error} = useContext(productContext);
+    const [filteredProducts, setFilteredProducts] = useState([]);
 
     useEffect(() => {
         if (data) {
-            setFilteredProducts(data as any[]);
+            setFilteredProducts(data);
         }
     }, [data]);
     if(loading) return <h1>Loading...</h1>;
-    if(error) return <h1>Error: {(error as any).message || String(error)}</h1>;
+    if(error) return <h1>Error: {error.message || String(error)}</h1>;
     if(!data) return <h1>No data available</h1>;
 
     return (
         <>
         <NavBar />
-        <SearchBar fetchedProducts={data as any[]} setFilteredProducts={setFilteredProducts} />
+        <SearchBar fetchedProducts={data} setFilteredProducts={setFilteredProducts} />
         <div className="product-grid">
             {filteredProducts.map((product) => (
                 <ProductCard key={product.id} id={product.id} name={product.name} description={product.description} price={product.price} />  

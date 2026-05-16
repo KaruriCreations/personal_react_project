@@ -1,11 +1,6 @@
 import { useState } from "react";
 
-interface SearchBarProps {
-    fetchedProducts: any[];
-    setFilteredProducts: (products: any[]) => void;
-}
-
-export default function SearchBar({ fetchedProducts, setFilteredProducts }: SearchBarProps){
+export default function SearchBar({ fetchedProducts, setFilteredProducts }){
     const [searchTerm, setSearchTerm] = useState("");
 
     const handleSearch = () => {

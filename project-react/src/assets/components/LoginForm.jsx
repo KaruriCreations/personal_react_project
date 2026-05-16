@@ -10,7 +10,7 @@ export default function LoginForm(){
     const [online, setOnline] = useState(false);
     const navigate = useNavigate();
 
-    const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
         setErrorMsg("");
         try{
