@@ -15,7 +15,7 @@ const {data, loading, error} = useContext(productContext);
         <NavBar />
         <div>
             {(data as any[]).map((product) => (
-                <ProductCard key={product.id} name={product.name} description={product.description} price={product.price} />  
+                <ProductCard key={product.id} id={product.id} name={product.name} description={product.description} price={product.price} />  
             ))}
         </div>
         </>
