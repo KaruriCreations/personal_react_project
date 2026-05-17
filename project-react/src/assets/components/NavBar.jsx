@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 
 export default function NavBar(){
     return (
+        // navigation links to the different pages
        <nav>
         <ul>
             <li>

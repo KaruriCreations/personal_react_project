@@ -7,7 +7,7 @@ export default function ProductForm(){
     const [price, setPrice] = useState("");
     const [errorMsg, setErrorMsg] = useState("");
     const navigate = useNavigate();
-
+    // handling the submission of the product form
       const handleSubmit = async (event) => {
         event.preventDefault();
         setErrorMsg("");
@@ -15,7 +15,8 @@ export default function ProductForm(){
             const response = await fetch("http://localhost:5000/electronics", {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
                 },
                 body: JSON.stringify({
                     name,
@@ -23,17 +24,19 @@ export default function ProductForm(){
                     price
                 })
             });
+            // if the response is ok, alert the user that the product was added successfully and navigate to the admin page
             if(response.ok){
-                console.log("Product added successfully!");
+                window.alert("Product added successfully!");
                 navigate("/admin/product-form");
             }
         }catch(error){
             console.log(error);
-            setErrorMsg("An error occurred during product addition.");
+            window.alert("An error occurred during product addition.");
         }
     }
     
     return (
+        //rendering the product form
         <form onSubmit={handleSubmit}>
             <label htmlFor="name">Product Name</label>
             <input type="text" id="name" name="name" onChange={(e) => setName(e.target.value)} />

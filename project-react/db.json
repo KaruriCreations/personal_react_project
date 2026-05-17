@@ -111,6 +111,19 @@
       "description": "shellshockers",
       "price": "299",
       "id": "5vxMT7jdnbk"
+    },
+    {
+      "name": "Gamers",
+      "description": "Come game with us",
+      "price": "1200",
+      "id": "BHCSeJ8fad0"
+    },
+    {
+      "name": "Gamers",
+      "description": "Come game with us",
+      "price": "1200",
+      "id": "CR5-hYCXmzI"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

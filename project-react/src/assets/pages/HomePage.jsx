@@ -2,9 +2,12 @@ import useFetch from "../../hooks/useFetch";
 import NavBar from "../components/NavBar";
 
 export default function HomePage(){
+    //fetching store info from the backend using my custom hook
     const {data, loading, error} = useFetch("http://localhost:5000/store_info");
 
-    if(loading) return <h1>Loading...</h1>;
+    //displaying the store info in the frontend
+
+    if(loading) return <h1>Loading...</h1>; // handling our loading state
     if(error) return <h1>Error: {error.message || String(error)}</h1>;
     if(!data) return <h1>No data available</h1>;
 

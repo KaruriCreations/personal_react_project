@@ -9,12 +9,11 @@ export default function LoginForm(){
     const [errorMsg, setErrorMsg] = useState("");
     const [online, setOnline] = useState(false);
     const navigate = useNavigate();
-
+// handles the submission of the login form
     const handleSubmit = async (event) => {
         event.preventDefault();
         setErrorMsg("");
         try{
-            // Fetch user by email only to avoid json-server query parsing bugs
             const response = await fetch(`http://localhost:5000/users?email=${email}`);
             if(response.ok){
                 const data = await response.json();

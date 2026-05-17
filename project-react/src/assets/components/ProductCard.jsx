@@ -1,5 +1,6 @@
 export default function ProductCard({ id, name, description, price, onEdit }){
     return (
+        // rendering the product card
         <div className="product-card">
             <h3>{name}</h3>
             <p>{description}</p>
