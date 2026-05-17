@@ -39,11 +39,11 @@ export default function ProductForm(){
         //rendering the product form
         <form onSubmit={handleSubmit}>
             <label htmlFor="name">Product Name</label>
-            <input type="text" id="name" name="name" onChange={(e) => setName(e.target.value)} />
+            <input type="text" id="name" name="name" value={name} onChange={(e) => setName(e.target.value)} />
             <label htmlFor="description">Description</label>
-            <input type="text" id="description" name="description" onChange={(e) => setDescription(e.target.value)} />
+            <input type="text" id="description" name="description" value={description} onChange={(e) => setDescription(e.target.value)} />
             <label htmlFor="price">Price</label>
-            <input type="text" id="price" name="price" onChange={(e) => setPrice(e.target.value)} />
+            <input type="text" id="price" name="price" value={price} onChange={(e) => setPrice(e.target.value)} />
             <button type="submit">Add Product</button>  
         </form>
     );

@@ -124,6 +124,5 @@
       "price": "1200",
       "id": "CR5-hYCXmzI"
     }
-  ],
-  "$schema": "./node_modules/json-server/schema.json"
+  ]
 }

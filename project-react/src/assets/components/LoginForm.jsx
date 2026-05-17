@@ -21,22 +21,21 @@ export default function LoginForm(){
                 if(data.length > 0){
                     // User found, verify password manually
                     if (data[0].password === password) {
-                        console.log("Login successful!", data[0]);
+                        window.alert("Login successful!");
                         setOnline(true);
                         // Navigate to the ProductForm subroute
                         navigate("/admin/product-form");
                     } else {
                         setErrorMsg("Invalid email or password");
+                        window.alert(errorMsg);
                         setOnline(false);
                     }
-                } else {
-                    setErrorMsg("Invalid email or password");
-                    setOnline(false);
                 }
             }
         }catch(error){
             console.log(error);
             setErrorMsg("An error occurred during login.");
+            window.alert(errorMsg);
         }
     }
 
