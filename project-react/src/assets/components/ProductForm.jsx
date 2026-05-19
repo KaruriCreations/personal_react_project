@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import productContext from "./ProductContext";
 
 export default function ProductForm(){
     const [name, setName] = useState("");
@@ -7,6 +8,8 @@ export default function ProductForm(){
     const [price, setPrice] = useState("");
     const [errorMsg, setErrorMsg] = useState("");
     const navigate = useNavigate();
+    const { refetch } = useContext(productContext);
+
     // handling the submission of the product form
       const handleSubmit = async (event) => {
         event.preventDefault();
@@ -24,13 +27,21 @@ export default function ProductForm(){
                     price
                 })
             });
-            // if the response is ok, alert the user that the product was added successfully and navigate to the admin page
+            // if the response is ok, refetch the product list so the UI updates immediately
             if(response.ok){
+                // clear form fields
+                setName("");
+                setDescription("");
+                setPrice("");
+                // refetch products so context updates everywhere
+                refetch();
                 window.alert("Product added successfully!");
-                navigate("/admin/product-form");
+            } else {
+                setErrorMsg("Failed to add product.");
             }
         }catch(error){
             console.log(error);
+            setErrorMsg("An error occurred during product addition.");
             window.alert("An error occurred during product addition.");
         }
     }
@@ -38,6 +49,7 @@ export default function ProductForm(){
     return (
         //rendering the product form
         <form onSubmit={handleSubmit}>
+            {errorMsg && <p style={{color: "red"}}>{errorMsg}</p>}
             <label htmlFor="name">Product Name</label>
             <input type="text" id="name" name="name" value={name} onChange={(e) => setName(e.target.value)} />
             <label htmlFor="description">Description</label>

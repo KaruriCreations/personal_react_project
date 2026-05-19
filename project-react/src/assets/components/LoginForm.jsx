@@ -26,16 +26,22 @@ export default function LoginForm(){
                         // Navigate to the ProductForm subroute
                         navigate("/admin/product-form");
                     } else {
-                        setErrorMsg("Invalid email or password");
-                        window.alert(errorMsg);
+                        const msg = "Invalid email or password";
+                        setErrorMsg(msg);
+                        window.alert(msg);
                         setOnline(false);
                     }
+                } else {
+                    const msg = "No user found with that email";
+                    setErrorMsg(msg);
+                    window.alert(msg);
                 }
             }
         }catch(error){
             console.log(error);
-            setErrorMsg("An error occurred during login.");
-            window.alert(errorMsg);
+            const msg = "An error occurred during login.";
+            setErrorMsg(msg);
+            window.alert(msg);
         }
     }
 

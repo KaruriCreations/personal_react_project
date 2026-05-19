@@ -7,7 +7,7 @@ import ProductForm from "../components/ProductForm";
 
 export default function AdminPage(){
     // destructuring the productContext as recommended by TM
-    const { data, loading, error } = useContext(productContext); 
+    const { data, loading, error, refetch } = useContext(productContext); 
     
     const [editingProduct, setEditingProduct] = useState(null);
     const [editName, setEditName] = useState("");
@@ -43,8 +43,10 @@ export default function AdminPage(){
                 })
             });
             if (response.ok) {
-                setSaveMsg("Product updated! Refresh to see changes.");
+                setSaveMsg("Product updated!");
                 setEditingProduct(null);
+                // refetch products so the UI updates immediately — no more manual refresh needed
+                refetch();
             } else {
                 setSaveMsg("Failed to update product.");
             }
@@ -52,6 +54,8 @@ export default function AdminPage(){
             setSaveMsg("An error occurred.");
         }
     }
+
+
 
     return (
         <div>

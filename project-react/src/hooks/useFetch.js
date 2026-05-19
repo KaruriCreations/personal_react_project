@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 export default function useFetch(url) {
     //using useState to manage the data, loading, and error states
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    //using useEffect to fetch data from the backend every time url changes
-    useEffect(() => {
+    // refetch function that can be called manually after CRUD operations
+    const refetch = useCallback(() => {
+        setLoading(true);
+        setError(null);
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -17,7 +19,12 @@ export default function useFetch(url) {
                 setError(err);
                 setLoading(false);
             })
-    }, [url])
+    }, [url]);
 
-    return { data, loading, error };
+    //using useEffect to fetch data from the backend every time url changes
+    useEffect(() => {
+        refetch();
+    }, [refetch])
+
+    return { data, setData, loading, error, refetch };
 }
